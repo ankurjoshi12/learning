@@ -29,7 +29,7 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn clean
-    - name: Run once of the clas 
-      run: |
-        javac src/test/java/Pallendrome/CheckIfPallendrome.java
-        java src/test/java/Pallendrome/ CheckIfPallendrome.java
+    - name: Compile Java class
+      run: javac -d out src/test/java/Pallendrome/CheckIfPallendrome.java
+    - name: Run Java class
+      run: java -cp out Pallendrome.CheckIfPallendrome
