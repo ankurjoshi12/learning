@@ -31,5 +31,5 @@ jobs:
       run: mvn clean
     - name: Run once of the clas 
       run: |
-        javac CheckIfPallendrome.java
-        java CheckIfPallendrome.java
+        javac src/test/java/Pallendrome/CheckIfPallendrome.java
+        java src/test/java/Pallendrome/ CheckIfPallendrome.java
