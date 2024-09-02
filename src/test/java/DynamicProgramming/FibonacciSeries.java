@@ -1,6 +1,6 @@
 package DynamicProgramming;
 
-import java.util.List;
+import java.util.Arrays;
 
 public class FibonacciSeries {
 
@@ -14,8 +14,8 @@ public class FibonacciSeries {
 		int[] arr = new int[value +1];
 		arr[0]=0;
 		arr[1]=1;
-		System.out.println("array intially : "+arr[2]);
-		System.out.println("array intially : "+List.of(arr));
+		System.out.println("array intially : "+Arrays.toString(arr));
+		
 		if(arr[value]!= 0) {
 			return arr[value];
 		}
@@ -25,11 +25,12 @@ public class FibonacciSeries {
 		for(int i =2 ; i<=value ; i++) {
 			arr[i] = arr[i-1]+arr[i-2];
 		}
-		System.out.println("Value is : "+ arr[value]);
+		
+		System.out.println("Value is : "+Arrays.toString(arr));
 		return arr[value];
 
 	}
 	public static void main(String[] args) {
-		 FibonacciSeries.findFibonacciSeriesValue(5);
+		 FibonacciSeries.findFibonacciSeriesValue(2);
 	}
 }

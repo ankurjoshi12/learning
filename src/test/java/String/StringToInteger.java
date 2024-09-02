@@ -64,11 +64,42 @@ public class StringToInteger {
 		return result*sign ;
 		
 	}
+	private static Integer reverseAStringToInteger(String pattern) {
+		
+		int index =0;
+		int sign = 1 ;
+		int len = pattern.length();
+		int digit = 0 ;
+		int result = 0 ; 
+		while(index<len-1 && Character.isWhitespace(pattern.charAt(index))) {
+			index++ ; 
+		}
+		if(index<len-1 && (pattern.charAt(index)=='-' || pattern.charAt(index)=='+')) {
+			System.out.println("Index is sign : "+pattern.charAt(index));
+			sign = pattern.charAt(index)== '-' ? -1 : 1 ;
+			index++ ;
+		}
+		while(index<len-1 && Character.isDigit(pattern.charAt(index))) {
+			System.out.println("Index is Digit : "+pattern.charAt(index));
+			digit = pattern.charAt(index)-'0';
+			if(result>(Integer.MAX_VALUE-digit)/10){
+				return sign == '1' ?Integer.MAX_VALUE : Integer.MIN_VALUE ;
+			}
+			else {
+				result = result * 10 + digit ;
+				index++;
+			}
+		}
+		System.out.println("result is : "+sign*result);
+		return sign*result ;
+
+	}
 	
 	public static void main(String[] args) {
 //		System.out.println("Converted String To integer "+StringToInteger.convertStringToInteger("2147483647"));
 //		System.out.println("Converted String To integer "+StringToInteger.reverseString("i love india's ")); 
 //		StringToInteger.reverseString("i love india's ");
-		StringToInteger.reverseInteger(-1234);
+//		StringToInteger.reverseInteger(-1234);
+		StringToInteger.reverseAStringToInteger("-123456");
 	}
 }

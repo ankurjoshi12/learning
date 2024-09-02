@@ -3,6 +3,7 @@ package String;
 public class LongestSubArray {
 
 	// Two pointer approach
+	//Find the max length of array which has sum less than test amount 
 	private void getLongestSubArrayUsingBetterApproach(int[] testArray , int TestAmount) {
 		int maxLen = 0 ; 
 		int sum = 0 ; 
