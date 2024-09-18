@@ -4,7 +4,7 @@ public class LongestSubArray {
 
 	// Two pointer approach
 	//Find the max length of array which has sum less than test amount 
-	private void getLongestSubArrayUsingBetterApproach(int[] testArray , int TestAmount) {
+	private static void getLongestSubArrayUsingBetterApproach(int[] testArray , int TestAmount) {
 		int maxLen = 0 ; 
 		int sum = 0 ; 
 		int validSum = 0;
@@ -13,15 +13,15 @@ public class LongestSubArray {
 		int validStart = 0 ;
 		int validEnd = 0 ;
 		while(end<testArray.length) {
-			System.out.println("Start : "+start+" , End : "+end);
+//			System.out.println("Start : "+start+" , End : "+end);
 			sum = sum + testArray[end];
-			System.out.println("Computed Sum "+sum+" , max length : "+maxLen);
+//			System.out.println("Computed Sum "+sum+" , max length : "+maxLen);
 			
 			if(sum>TestAmount) {
 				
 //				LongestSubArray(start, end, testArray);
-				System.out.println("Reduce Sliding window by 1");
-				System.out.println("Invalid case : Sum "+sum+" , max length : "+maxLen+" , start index : "+start);
+//				System.out.println("Reduce Sliding window by 1");
+//				System.out.println("Invalid case : Sum "+sum+" , max length : "+maxLen+" , start index : "+start);
 				sum = sum - testArray[start];
 				
 				start++;
@@ -31,9 +31,10 @@ public class LongestSubArray {
 					validStart = start ;
 					validEnd = end ;
 					validSum = sum;
+					
 				}
 				maxLen= Math.max(maxLen, end-start+1);
-				System.out.println("Valid case : Sum "+sum+" , max length : "+maxLen);
+//				System.out.println("Valid case : Sum "+sum+" , max length : "+maxLen);
 				
 			}
 			end++ ;
@@ -41,14 +42,14 @@ public class LongestSubArray {
 			
 		}
 		LongestSubArray(validStart, validEnd, testArray);
-		System.out.println();
+//		LongestSubArray(validStart, validEnd, testArray);
 		System.out.println("Sum "+validSum+" , max length : "+maxLen);
 		
 	}
 	
-	public void LongestSubArray(int start1 , int end1 ,int[] testArray) {
-		System.out.println("Valid Longest array is ");
+	public static void LongestSubArray(int start1 , int end1 ,int[] testArray) {
 		while(start1<=end1) {
+//			System.out.println("Valid Longest array is : "+testArray[start1]);
 			System.out.print(testArray[start1]);
 			
 			start1++ ;

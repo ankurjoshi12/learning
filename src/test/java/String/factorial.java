@@ -8,13 +8,14 @@ public class factorial {
 	private static int getFactorial(int number ) {
 		int[] arr = new int[number+1];
 		arr[0]= 1 ; 
+		arr[1]=1;
 		
 		if(arr[number]!= 0) {
 			return arr[number];
 		}
 		else {
 			System.out.println("in Else");
-			for(int i = 1 ; i<= number; i++) {
+			for(int i = 2 ; i<= number; i++) {
 				System.out.println("in Iteration : "+i);
 				arr[i] = arr[i-1]*i;
 				System.out.println("result from for loop "+Arrays.toString(arr));
@@ -73,6 +74,6 @@ public class factorial {
 //		factorial.printString("s");
 		int [] arr = {1,2,3,4,5};
 		factorial.sumOfArrayElements(arr,0,0);
-		factorial.sumOfSingleInterger(3,0);
+//		factorial.sumOfSingleInterger(3,0);
 	}
 }

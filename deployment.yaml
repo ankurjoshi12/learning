@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: learning-project-deployment
+spec: 
+   replicas: 1
+   selector: 
+      matchLabels:
+         app: learnings 
+   template: 
+      metadata: 
+         labels:
+            app: learnings
+      spec: 
+         containers: 
+            - name: learning-project-deployment
+              image: ankurjoshihld/learnings:v1

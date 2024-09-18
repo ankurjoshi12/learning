@@ -1,5 +1,8 @@
 package String;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PermutationOfString {
 
 	/**
@@ -8,9 +11,10 @@ public class PermutationOfString {
 	 * @param permutation :  String permutation so far 
 	 * @param index size of string pattern
 	 */
-	private static void Permutation(String pattern , String permutation , int index) {
+	private static void Permutation(String pattern , String permutation , List<String> perm ) {
 		if(pattern.length()==0) {
 			System.out.println(permutation);
+			perm.add(permutation);
 			return ;
 		}
 		
@@ -19,11 +23,13 @@ public class PermutationOfString {
 			char currentChar = pattern.charAt(i);
 			String nextPattern = pattern.substring(0, i)+pattern.substring(i+1);
 			System.out.println("currentChar : "+currentChar+" , nextPattern : "+nextPattern+" , permutation+currentChar : "+permutation+currentChar);
-			Permutation(nextPattern, permutation+currentChar, index+1);
+			Permutation(nextPattern, permutation+currentChar , perm);
 		}
 	}
 	public static void main(String[] args) {
-		PermutationOfString.Permutation("abc","", 0);
+		 List<String> perm = new ArrayList<>();
+		PermutationOfString.Permutation("abc","",perm);
+		System.out.println("All permutation : "+perm.toString());
 	}
 }
 	
